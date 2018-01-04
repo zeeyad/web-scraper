@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-md-2">
+      <div style="padding-top: 10px;">
+		<h1>Nike Price</h1>
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th scope="col">Title</th>
+		      <th scope="col">Price</th>
+		    </tr>
+		  </thead>
+			  <tbody>
+			  <% @entriesArray.compact.each do |entry| %>
+				<tr>
+					<td><%= entry.title %></td>
+			    	<td><%= entry.price %></td>
+			    </tr>
+			  </tbody>
+		    <% end %>
+		</table>
+	  </div>
+    </div>
+  </div>
+</div>
