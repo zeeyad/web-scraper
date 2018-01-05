@@ -11,14 +11,6 @@ class ScrapeController < ApplicationController
     attr_reader :price
   end
 
-  class Post
-    def initialize(paragraph)
-      @paragraph = paragraph
-    end
-    attr_reader :paragraph
-  end
-
-
   def scrape_nike
     doc = Nokogiri::HTML(open("https://store.nike.com/us/en_us/pw/mens-nikeid-lifestyle-shoes/1k9Z7puZoneZoi3?ipp=99"))
     
@@ -43,7 +35,7 @@ class ScrapeController < ApplicationController
     @wiki_paragraph = item_container.map { |name| name.text }.compact
 
     @wiki_headline = item_container.css(".mw-headline").text
-    # @wiki_paragraph = item_container.css("p")[0].text
+    
     @wiki_image = item_container.css(".image").at("img")['src']   
     render template: 'scrape/scrape_wiki'
   end
