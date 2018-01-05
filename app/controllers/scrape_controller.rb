@@ -9,7 +9,7 @@ class ScrapeController < ApplicationController
     attr_reader :price
   end
 
-  def scrape_reddit
+  def scrape_nike
     require 'open-uri'
     doc = Nokogiri::HTML(open("https://store.nike.com/us/en_us/pw/mens-nikeid-lifestyle-shoes/1k9Z7puZoneZoi3?ipp=99"))
     
@@ -22,7 +22,7 @@ class ScrapeController < ApplicationController
       @entriesArray << Entry.new(titles[index], prices[index])
     end
    
-    render template: 'scrape/scrape_reddit'
+    render template: 'scrape/scrape_nike'
   end
 
 end

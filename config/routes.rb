@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  root 'static#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'scrape#scrape_reddit'
+  get '/scrape_nike', to: 'scrape#scrape_nike'
 
 end
